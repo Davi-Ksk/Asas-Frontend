@@ -5,6 +5,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding-top: 4.8rem;
 
     background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
@@ -12,24 +13,18 @@ export const Container = styled.div`
         margin: 0 auto 0;
     }
 
-    > #button-text {
-        margin-top: 3.2rem;
-    }
-
     @media (min-width: 768px) {
         flex-direction: row;
         justify-content: space-between;
-
+        padding-top: 0;
         background-color: ${({ theme }) => theme.COLORS.DARK_400};
 
         > #logo {
             margin-top: -5.8rem;
+            paddign 2rem;
         }
 
-        > #button {
-            margin-top: 20rem;
-        }
-
+        
     }
 
 `;

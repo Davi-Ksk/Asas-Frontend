@@ -107,7 +107,7 @@ export function SignUp() {
 
 
                 <Button 
-                    id="button"
+                    className="button"
                     title="Criar conta"
                     // onClick={handleSignIn}
                 />
