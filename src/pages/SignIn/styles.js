@@ -9,7 +9,7 @@ export const Container = styled.div`
     background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
     > #logo {
-        margin-top: 15.8rem;
+        margin: 0 auto 0;
     }
 
     > #button-text {
@@ -20,7 +20,7 @@ export const Container = styled.div`
         flex-direction: row;
         justify-content: space-between;
 
-        padding: 0 10.8rem 0 15.386rem ;
+        padding: 0 10.8rem 0 0 ;
 
         background-color: ${({ theme }) => theme.COLORS.DARK_400};
 

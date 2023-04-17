@@ -10,15 +10,16 @@ export const Container = styled.div`
     height: 50px;
     width: 50px;
     stroke: ${({ theme }) => theme.COLORS.LIGHT_100};
-    fill: ${({ theme }) => theme.COLORS.CAKE_100};
+    //fill: ${({ theme }) => theme.COLORS.CAKE_100};
   }
 
   > h1 {
     font-family: 'Poppins', sans-serif;
-    font-size: 4rem;
+    font-size: 4.5rem;
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     line-height: 44px;
     font-weight: 500;
+    user-select: none;
   }
 `;
 

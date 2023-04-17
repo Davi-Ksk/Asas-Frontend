@@ -8,7 +8,7 @@ import { Logo } from '../../components/Logo';
 
 // import { useAuth } from '../../hooks/auth';
 
- import { Container, Form, LoginWrapper, InputWrapper, InputTeste} from './styles';
+ import { Container, Form, LoginWrapper, InputWrapper, InputGrid} from './styles';
 
 export function SignUp() {
     // const [email, setEmail] = useState('');
@@ -30,15 +30,16 @@ export function SignUp() {
             <h1>Crie sua conta</h1>
 
             <Form>
-                <InputTeste>
+                <InputGrid>
+                {/* First Line */}
                     <InputWrapper>
                         <InputLabel
                         title="Seu nome"
                         />
 
                         <Input 
-                            placeholder="Exemplo: Maria da Silva"
-                            type="password"
+                            placeholder="Maria da Silva"
+                            type="text"
                             // onChange={e => setPassword(e.target.value)}
                         />
                     </InputWrapper>
@@ -48,51 +49,52 @@ export function SignUp() {
                         />
 
                         <Input 
-                            placeholder="Exemplo: exemplo@exemplo.com.br"
+                            placeholder="exemplo@exemplo.com.br"
                             type="text"
                             // onChange={e => setEmail(e.target.value)}
                             />
                     </InputWrapper>
+
                     <InputWrapper>
                         <InputLabel
-                        title="Senha"
+                        title="Celular"
                         />
+                        <Input 
+                            placeholder="(00) 00000-0000"
+                            type="tel"
+                            // onChange={e => setPassword(e.target.value)}
+                        />
+                    </InputWrapper>
+                {/* Second Column */}
+                    <InputWrapper>
+                        <InputLabel
+                        title="Seu CPF"
+                        />
+
+                        <Input 
+                            placeholder="000.000.000-00"
+                            type="number"
+                            // onChange={e => setPassword(e.target.value)}
+                        />
+
+                    </InputWrapper>
+                    <InputWrapper>
+
+                        <InputLabel
+                        title="Sua Senha"
+                        />
+
                         <Input 
                             placeholder="No mínimo 8 caracteres"
                             type="password"
-                            // onChange={e => setPassword(e.target.value)}
-                        />
-                    </InputWrapper>
-
-                    <InputWrapper>
-                        <InputLabel
-                        title="Seu nome"
-                        />
-
-                        <Input 
-                            placeholder="Exemplo: Maria da Silva"
-                            type="password"
-                            // onChange={e => setPassword(e.target.value)}
-                        />
-
-                    </InputWrapper>
-                    <InputWrapper>
-
-                        <InputLabel
-                        title="E-mail"
-                        />
-
-                        <Input 
-                            placeholder="Exemplo: exemplo@exemplo.com.br"
-                            type="text"
                             // onChange={e => setEmail(e.target.value)}
-                            />
+                        />
 
                     </InputWrapper>
                     <InputWrapper>
                             
                         <InputLabel
-                        title="Senha"
+                        title="Confirme sua Senha"
                         />
                         <Input 
                             placeholder="No mínimo 8 caracteres"
@@ -101,10 +103,11 @@ export function SignUp() {
                         />
 
                     </InputWrapper>
-                </InputTeste>
+                </InputGrid>
 
 
                 <Button 
+                    id="button"
                     title="Criar conta"
                     // onClick={handleSignIn}
                 />

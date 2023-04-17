@@ -9,7 +9,7 @@ export const Container = styled.div`
     background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
     > #logo {
-        margin-top: 15.8rem;
+        margin: 0 auto 0;
     }
 
     > #button-text {
@@ -20,13 +20,16 @@ export const Container = styled.div`
         flex-direction: row;
         justify-content: space-between;
 
-        padding: 0 10.8rem 0 15.386rem ;
-
         background-color: ${({ theme }) => theme.COLORS.DARK_400};
 
         > #logo {
             margin-top: -5.8rem;
         }
+
+        > #button {
+            margin-top: 20rem;
+        }
+
     }
 
 `;
@@ -39,7 +42,7 @@ export const LoginWrapper = styled.div`
     flex-direction: column;
     align-items: center;
 
-    border-radius: 1.6rem;
+    border-radius: 1.6rem 0 0 1.6rem;
 
     padding: 6.4rem;
 
@@ -57,7 +60,8 @@ export const LoginWrapper = styled.div`
     
     @media (min-width: 768px) {
         
-        width: 100%;
+        width: 825px;
+        height: 100%;
         > h1 {
             display: flex;
         } 
@@ -86,11 +90,11 @@ export const InputWrapper = styled.div`
     @media (min-width: 768px) {
         display: flex;
         flex-direction: column;
-        min-width: clamp(30rem, 20rem + 15vw, 34rem);
+        width: 100%;    
     }
 `;
 
-export const InputTeste = styled.div`
+export const InputGrid = styled.div`
 @media (min-width: 768px) {
     display: grid;
     grid-template-columns: 2fr 2fr;
