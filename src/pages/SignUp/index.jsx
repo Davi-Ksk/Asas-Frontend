@@ -1,5 +1,8 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom';
+
+import { api } from "../../services/api";
+
 import { Input } from '../../components/Input';
 import { InputLabel } from '../../components/InputLabel';
 import { Button } from '../../components/Button';
@@ -11,14 +14,36 @@ import { Logo } from '../../components/Logo';
  import { Container, Form, LoginWrapper, InputWrapper, InputGrid} from './styles';
 
 export function SignUp() {
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState('');
 
-    // const { signIn } = useAuth();
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [cpf, setCpf] = useState("");
+    const [phone, setPhone] = useState("");
+    const [password, setPassword] = useState("");
+    const [password_confirmation, setPasswordConfirmation] = useState("");
 
-    // function handleSignIn() {
-    //     signIn({ email, password });
-    // }
+    const navigate = useNavigate(); //Usado para levar para outra página
+
+    function handleSignUp() {
+        if (!name || !email || !password || !password_confirmation || !cpf || !phone) {
+            return alert("Preencha todos os campos!");
+        }
+
+        api.post("/users", {
+            name, email, password, cpf, phone, password_confirmation
+        })
+        .then(() => {
+            alert("Usuário criado com sucesso!");
+            navigate("/"); //Vai para a página inicial
+        })
+        .catch(error => {
+            if(error.response){
+                alert(error.response.data.message);
+            } else {
+                alert("Não foi possível cadastrar o usuário!");
+            }
+        });
+    }
 
     return (
         <Container>
@@ -31,7 +56,7 @@ export function SignUp() {
 
             <Form>
                 <InputGrid>
-                {/* First Line */}
+                {/* First row */}
                     <InputWrapper>
                         <InputLabel
                         title="Seu nome"
@@ -40,7 +65,7 @@ export function SignUp() {
                         <Input 
                             placeholder="Maria da Silva"
                             type="text"
-                            // onChange={e => setPassword(e.target.value)}
+                            onChange={e => setName(e.target.value)}
                         />
                     </InputWrapper>
                     <InputWrapper>
@@ -51,10 +76,11 @@ export function SignUp() {
                         <Input 
                             placeholder="exemplo@exemplo.com.br"
                             type="text"
-                            // onChange={e => setEmail(e.target.value)}
+                            onChange={e => setEmail(e.target.value)}
                             />
                     </InputWrapper>
-
+                    
+                {/* Second row */}
                     <InputWrapper>
                         <InputLabel
                         title="Celular"
@@ -62,10 +88,9 @@ export function SignUp() {
                         <Input 
                             placeholder="(00) 00000-0000"
                             type="tel"
-                            // onChange={e => setPassword(e.target.value)}
+                            onChange={e => setPhone(e.target.value)}
                         />
                     </InputWrapper>
-                {/* Second Column */}
                     <InputWrapper>
                         <InputLabel
                         title="Seu CPF"
@@ -74,10 +99,12 @@ export function SignUp() {
                         <Input 
                             placeholder="000.000.000-00"
                             type="number"
-                            // onChange={e => setPassword(e.target.value)}
+                            onChange={e => setCpf(e.target.value)}
                         />
 
                     </InputWrapper>
+
+                {/* Third row */}
                     <InputWrapper>
 
                         <InputLabel
@@ -87,7 +114,7 @@ export function SignUp() {
                         <Input 
                             placeholder="No mínimo 8 caracteres"
                             type="password"
-                            // onChange={e => setEmail(e.target.value)}
+                            onChange={e => setPassword(e.target.value)}
                         />
 
                     </InputWrapper>
@@ -99,7 +126,7 @@ export function SignUp() {
                         <Input 
                             placeholder="No mínimo 8 caracteres"
                             type="password"
-                            // onChange={e => setPassword(e.target.value)}
+                            onChange={e => setPasswordConfirmation(e.target.value)}
                         />
 
                     </InputWrapper>
@@ -109,12 +136,12 @@ export function SignUp() {
                 <Button 
                     className="button"
                     title="Criar conta"
-                    // onClick={handleSignIn}
+                    onClick={handleSignUp}
                 />
 
             </Form>
 
-            <ButtonText 
+            <ButtonText
                   title="Já tenho uma conta"
                   to="/"
             />
