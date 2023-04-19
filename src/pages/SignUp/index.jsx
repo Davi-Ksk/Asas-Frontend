@@ -59,7 +59,7 @@ export function SignUp() {
                 {/* First row */}
                     <InputWrapper>
                         <InputLabel
-                        title="Seu nome"
+                        title="Seu nome completo"
                         />
 
                         <Input 
