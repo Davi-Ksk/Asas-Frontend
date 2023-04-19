@@ -3,19 +3,19 @@ import ReactDOM from 'react-dom/client'
 import GlobalStyles from './styles/global';
 import { ThemeProvider } from 'styled-components';
 
-// import { AuthProvider } from './hooks/auth';
+import { AuthProvider } from './hooks/auth';
+import { Routes } from './Routes'
 
 import theme from './Styles/theme'
 
-import { Routes } from './Routes'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-        {/* <AuthProvider> */}
+        <AuthProvider>
           <Routes />
-        {/* </AuthProvider> */}
+        </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>,
 )
